@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mobile LLM Performance Analytics Dashboard</title>
-
+  <title>Mobile LLM Performance Analytics</title>
   <link rel="stylesheet" href="./style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
   <script src="./app.js" defer></script>
@@ -27,10 +26,9 @@
   </section>
 
   <main class="grid">
-    <!-- Session summary -->
     <section class="card">
       <h2>Session Summary</h2>
-      <div id="sessionSummary" class="summary">
+      <div class="summary">
         <div class="summary__row">
           <div><span class="summary__label">Session ID</span><span id="sumSessionId" class="summary__value">—</span></div>
           <div><span class="summary__label">Duration</span><span id="sumDuration" class="summary__value">—</span></div>
@@ -40,7 +38,6 @@
       </div>
     </section>
 
-    <!-- DVFS Frequency Over Time -->
     <section class="card">
       <div class="card__header">
         <h2>DVFS Frequency Scaling Over Time</h2>
@@ -49,7 +46,6 @@
       <canvas id="dvfsChart" height="140"></canvas>
     </section>
 
-    <!-- CPU & Memory Over Time -->
     <section class="card">
       <div class="card__header">
         <h2>System Resource Usage</h2>
@@ -58,7 +54,6 @@
       <canvas id="sysChart" height="140"></canvas>
     </section>
 
-    <!-- Model Performance Comparison -->
     <section class="card">
       <div class="card__header">
         <h2>Model Performance</h2>
@@ -67,7 +62,6 @@
       <canvas id="modelChart" height="140"></canvas>
     </section>
 
-    <!-- Thermal Analysis -->
     <section class="card">
       <div class="card__header">
         <h2>Thermal Analysis</h2>
@@ -76,7 +70,6 @@
       <canvas id="thermalChart" height="140"></canvas>
     </section>
 
-    <!-- Token Timeline -->
     <section class="card">
       <div class="card__header">
         <h2>Token Generation Timeline</h2>
@@ -86,11 +79,10 @@
     </section>
   </main>
 
-  <!-- Hosted datasets dialog -->
   <dialog id="hostedDialog">
     <form method="dialog" class="dialog">
       <h3>Hosted datasets</h3>
-      <p>Select a JSON file from docs/data/ (add files there to make them appear).</p>
+      <p>Select a JSON file from docs/data/.</p>
       <div id="hostedList" class="dialog__list">No hosted data found.</div>
       <div class="dialog__actions">
         <button value="cancel" class="btn">Close</button>

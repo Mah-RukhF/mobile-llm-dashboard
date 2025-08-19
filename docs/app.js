@@ -27,9 +27,8 @@ class Dashboard {
 
     this.uploadBtn.addEventListener('click', () => this.fileInput.click());
     this.fileInput.addEventListener('change', (e) => {
-      if (e.target.files && e.target.files[0]) {
-        this.loadFromFile(e.target.files);
-      }
+      const file = e.target.files && e.target.files[0];
+      if (file) this.loadFromFile(file);
     });
 
     this.openHostedBtn.addEventListener('click', () => {
@@ -50,7 +49,7 @@ class Dashboard {
     document.addEventListener('drop', (e) => {
       e.preventDefault();
       document.body.classList.remove('drag-over');
-      const file = e.dataTransfer?.files?.[0];
+      const file = e.dataTransfer?.files?.;
       if (file && file.name.endsWith('.json')) {
         this.loadFromFile(file);
       }
@@ -76,7 +75,10 @@ class Dashboard {
       document.getElementById('dvfsChart'),
       {
         type: 'line',
-        data: { labels: [], datasets: [{ label: 'Avg CPU freq (kHz)', data: [], borderColor: this.colors.teal, tension: 0.2 }] },
+        data: {
+          labels: [],
+          datasets: [{ label: 'Avg CPU freq (kHz)', data: [], borderColor: this.colors.teal, tension: 0.2 }]
+        },
         options: {
           ...commonOpts,
           scales: {
@@ -128,7 +130,17 @@ class Dashboard {
       document.getElementById('thermalChart'),
       {
         type: 'line',
-        data: { labels: [], datasets: [{ label: 'Avg CPU freq (kHz)', data: [], borderColor: this.colors.red, backgroundColor: 'rgba(239,68,68,0.15)', fill: true, tension: 0.2 }] },
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'Avg CPU freq (kHz)',
+            data: [],
+            borderColor: this.colors.red,
+            backgroundColor: 'rgba(239,68,68,0.15)',
+            fill: true,
+            tension: 0.2
+          }]
+        },
         options: {
           ...commonOpts,
           scales: {
@@ -170,14 +182,14 @@ class Dashboard {
   }
 
   async tryListHosted() {
-    // List files in docs/data/ via an index.json if present; otherwise, show empty state.
+    // Add cache buster to defeat Pages caching while you iterate
     try {
-      const resp = await fetch('./data/index.json', { cache: 'no-store' });
+      const resp = await fetch('./data/index.json?' + Date.now(), { cache: 'no-store' });
       if (!resp.ok) return;
       const index = await resp.json();
       this.hostedIndex = index;
     } catch {
-      // ignore
+      // ignore missing index.json
     }
   }
 
@@ -187,14 +199,10 @@ class Dashboard {
 
     const hint = document.createElement('div');
     hint.className = 'dialog__hint';
-    hint.textContent = 'Add JSON files to docs/data/ and refresh to see them here. Optionally include docs/data/index.json to customize labels.';
+    hint.textContent = 'Add JSON files to docs/data/ and refresh, or include docs/data/index.json.';
     list.appendChild(hint);
 
-    const fallback = [
-      // If no index.json, we’ll try some standard names; user can replace these with real files.
-      'sample_mobile_llm_experiment.json'
-    ];
-
+    const fallback = ['sample_mobile_llm_experiment.json'];
     const items = this.hostedIndex?.sessions?.map(s => ({ label: s.name || s.file, file: s.file })) ??
                   fallback.map(f => ({ label: f, file: `./data/${f}` }));
 
@@ -206,6 +214,7 @@ class Dashboard {
       btn.onclick = async () => {
         try {
           const resp = await fetch(item.file, { cache: 'no-store' });
+          if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
           const json = await resp.json();
           this.loadData(json, item.label);
           this.hostedDialog.close();
@@ -218,7 +227,6 @@ class Dashboard {
   }
 
   loadData(json, sourceName = 'Loaded JSON') {
-    // Minimal schema checks
     if (!json.sessionInfo || !json.performanceData) {
       this.notify('Invalid schema: expected sessionInfo and performanceData.', true);
       return;
@@ -233,7 +241,7 @@ class Dashboard {
     this.notify(`Loaded: ${sourceName}`);
   }
 
-  updateSummary(sourceName) {
+  updateSummary() {
     const s = this.data.sessionInfo || {};
     const perf = this.data.performanceData?.academicMetrics || {};
     const totalInferences = perf.totalInferences ?? (this.data.inferences?.length ?? '—');
@@ -261,7 +269,6 @@ class Dashboard {
     const points = this.data.performanceData?.academicMetrics?.systemCorrelation?.dvfsDataByPhase?.decode ?? [];
     const labels = points.map(p => new Date(p.timestamp).toLocaleTimeString());
     const freqs = points.map(p => p.avgFrequency);
-
     const ds = this.charts.dvfs.data;
     ds.labels = labels;
     ds.datasets[0].data = freqs;
@@ -269,23 +276,19 @@ class Dashboard {
   }
 
   renderSystem() {
-    const points = this.data.performanceData?.academicMetrics?.systemCorrelation?.cpuUsageByPhase?.decode ?? [];
-    const memPoints = this.data.performanceData?.academicMetrics?.systemCorrelation?.memoryUsageByPhase?.decode ?? [];
-
-    const timestamps = points.map(p => p.timestamp);
-    const labels = timestamps.map(t => new Date(t).toLocaleTimeString());
-    const cpu = points.map(p => p.processCpu);
-    const memMB = memPoints.map(p => (p.processMemory ?? 0));
-
+    const cpuPts = this.data.performanceData?.academicMetrics?.systemCorrelation?.cpuUsageByPhase?.decode ?? [];
+    const memPts = this.data.performanceData?.academicMetrics?.systemCorrelation?.memoryUsageByPhase?.decode ?? [];
+    const labels = cpuPts.map(p => new Date(p.timestamp).toLocaleTimeString());
+    const cpu = cpuPts.map(p => p.processCpu);
+    const mem = memPts.map(p => (p.processMemory ?? 0));
     const ds = this.charts.sys.data;
     ds.labels = labels;
     ds.datasets.data = cpu;
-    ds.datasets[1].data = memMB;
+    ds.datasets[1].data = mem;
     this.charts.sys.update();
   }
 
   renderModelPerf() {
-    // If inference detail contains tokensPerSecond by phase, derive per model
     const inferences = this.data.inferences || [];
     const perModel = new Map();
     for (const inf of inferences) {
@@ -297,19 +300,10 @@ class Dashboard {
       if (typeof decodeTPS === 'number') entry.decode.push(decodeTPS);
       perModel.set(model, entry);
     }
-
     const labels = Array.from(perModel.keys());
-    const avg = (arr) => arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : null;
-
-    const prefill = labels.map(m => {
-      const v = avg(perModel.get(m).prefill);
-      return v ?? 0;
-    });
-    const decode = labels.map(m => {
-      const v = avg(perModel.get(m).decode);
-      return v ?? 0;
-    });
-
+    const avg = (arr) => arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : 0;
+    const prefill = labels.map(m => avg(perModel.get(m).prefill));
+    const decode = labels.map(m => avg(perModel.get(m).decode));
     const ds = this.charts.model.data;
     ds.labels = labels;
     ds.datasets = [
@@ -320,11 +314,9 @@ class Dashboard {
   }
 
   renderThermal() {
-    // Use same DVFS decode but highlight drops (simple moving min heuristic)
     const points = this.data.performanceData?.academicMetrics?.systemCorrelation?.dvfsDataByPhase?.decode ?? [];
     const labels = points.map(p => new Date(p.timestamp).toLocaleTimeString());
     const freqs = points.map(p => p.avgFrequency);
-
     const ds = this.charts.thermal.data;
     ds.labels = labels;
     ds.datasets[0].data = freqs;
