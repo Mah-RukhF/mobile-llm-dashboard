@@ -55,6 +55,7 @@ async function loadFromGitHub() {
       const data = await response.json();
       experimentData.push(data);
   }
+  processData();
 }
         
 // Load local files
