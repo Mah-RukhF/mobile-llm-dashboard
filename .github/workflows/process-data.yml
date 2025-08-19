@@ -1,0 +1,30 @@
+name: Process Experiment Data
+
+on:
+  push:
+    paths:
+      - 'data/experiments/*.json'
+  workflow_dispatch:
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Process experiment data
+      run: python scripts/process_data.py
+    
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/experiments.json
+        git diff --staged --quiet || git commit -m "Update experiment index"
+        git push

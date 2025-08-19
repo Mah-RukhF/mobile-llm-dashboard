@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartVA Mobile LLM Performance Dashboard</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <!-- Plotly.js for advanced visualizations -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    
+    <!-- DataTables for experiment browser -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="./js/dashboard.js" defer></script>
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 20px 0;
+        }
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+        .tab-active {
+            background-color: #4F46E5;
+            color: white;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4F46E5;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <div class="gradient-bg text-white p-6">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold mb-2">SmartVA Mobile LLM Performance Dashboard</h1>
+            <p class="text-lg opacity-90">Academic Research Data Visualization</p>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 py-8">
+        <!-- Data Loader -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">Load Experiment Data</h2>
+            <div class="flex gap-4 items-center">
+                <input type="file" id="fileInput" accept=".json" multiple class="flex-1 p-2 border rounded">
+                <button onclick="loadLocalFiles()" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+                    Load Files
+                </button>
+                <button onclick="loadSampleData()" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
+                    Load Sample Data
+                </button>
+            </div>
+            <div id="loadStatus" class="mt-4 text-sm text-gray-600"></div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="flex gap-2 mb-6 flex-wrap">
+            <button onclick="switchTab('overview')" id="tab-overview" class="tab-active px-4 py-2 rounded-lg font-medium bg-white">
+                Overview
+            </button>
+            <button onclick="switchTab('dvfs')" id="tab-dvfs" class="px-4 py-2 rounded-lg font-medium bg-white hover:bg-gray-100">
+                DVFS Analysis
+            </button>
+            <button onclick="switchTab('phase')" id="tab-phase" class="px-4 py-2 rounded-lg font-medium bg-white hover:bg-gray-100">
+                Phase Comparison
+            </button>
+            <button onclick="switchTab('thermal')" id="tab-thermal" class="px-4 py-2 rounded-lg font-medium bg-white hover:bg-gray-100">
+                Thermal Analysis
+            </button>
+            <button onclick="switchTab('models')" id="tab-models" class="px-4 py-2 rounded-lg font-medium bg-white hover:bg-gray-100">
+                Model Comparison
+            </button>
+            <button onclick="switchTab('power')" id="tab-power" class="px-4 py-2 rounded-lg font-medium bg-white hover:bg-gray-100">
+                Power Analysis
+            </button>
+            <button onclick="switchTab('data')" id="tab-data" class="px-4 py-2 rounded-lg font-medium bg-white hover:bg-gray-100">
+                Raw Data
+            </button>
+        </div>
+
+        <!-- Content Area -->
+        <div id="content-area">
+            <!-- Overview Tab -->
+            <div id="overview-content" class="tab-content">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="metric-card">
+                        <h3 class="text-gray-600 text-sm font-medium">Total Experiments</h3>
+                        <p class="text-3xl font-bold text-blue-600" id="totalExperiments">0</p>
+                    </div>
+                    <div class="metric-card">
+                        <h3 class="text-gray-600 text-sm font-medium">Avg Tokens/Sec</h3>
+                        <p class="text-3xl font-bold text-green-600" id="avgTokensPerSec">0</p>
+                    </div>
+                    <div class="metric-card">
+                        <h3 class="text-gray-600 text-sm font-medium">Peak Frequency</h3>
+                        <p class="text-3xl font-bold text-purple-600" id="peakFrequency">0 MHz</p>
+                    </div>
+                    <div class="metric-card">
+                        <h3 class="text-gray-600 text-sm font-medium">Thermal Events</h3>
+                        <p class="text-3xl font-bold text-red-600" id="thermalEvents">0</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Performance Timeline</h3>
+                    <div class="chart-container">
+                        <canvas id="performanceTimeline"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DVFS Analysis Tab -->
+            <div id="dvfs-content" class="tab-content hidden">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">DVFS Frequency Scaling Timeline</h3>
+                    <div id="dvfsPlot" style="height: 500px;"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-bold mb-4">Frequency Distribution</h3>
+                        <canvas id="freqDistribution"></canvas>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-bold mb-4">Scaling Efficiency</h3>
+                        <canvas id="scalingEfficiency"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase Comparison Tab -->
+            <div id="phase-content" class="tab-content hidden">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Prefill vs Decode Performance</h3>
+                    <div class="chart-container">
+                        <canvas id="phaseComparison"></canvas>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 mt-6">
+                    <h3 class="text-xl font-bold mb-4">Phase Metrics Breakdown</h3>
+                    <div id="phaseMetricsTable"></div>
+                </div>
+            </div>
+
+            <!-- Thermal Analysis Tab -->
+            <div id="thermal-content" class="tab-content hidden">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Thermal Throttling Analysis</h3>
+                    <div id="thermalPlot" style="height: 500px;"></div>
+                </div>
+            </div>
+
+            <!-- Model Comparison Tab -->
+            <div id="models-content" class="tab-content hidden">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Model Performance Comparison</h3>
+                    <div id="modelRadar" style="height: 500px;"></div>
+                </div>
+            </div>
+
+            <!-- Power Analysis Tab -->
+            <div id="power-content" class="tab-content hidden">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Power Consumption Analysis</h3>
+                    <div id="powerPlot" style="height: 500px;"></div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 mt-6">
+                    <h3 class="text-xl font-bold mb-4">Energy Efficiency Metrics</h3>
+                    <div id="energyMetrics"></div>
+                </div>
+            </div>
+
+            <!-- Raw Data Tab -->
+            <div id="data-content" class="tab-content hidden">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Experiment Data Browser</h3>
+                    <table id="dataTable" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Experiment ID</th>
+                                <th>Model</th>
+                                <th>Quantization</th>
+                                <th>Context Length</th>
+                                <th>Tokens/Sec</th>
+                                <th>Duration (ms)</th>
+                                <th>CPU Usage (%)</th>
+                                <th>Frequency (MHz)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
