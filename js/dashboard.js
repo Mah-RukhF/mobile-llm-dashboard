@@ -36,6 +36,26 @@
                 renderTabContent(tabName);
             }
         }
+
+        async function loadFromGitHub() {
+          const owner = 'mah-rukhf';
+          const repo = 'mobile-llm-dashboard';
+          
+          // Fetch index
+          const indexResponse = await fetch(
+              `https://raw.githubusercontent.com/${owner}/${repo}/main/data/experiments.json`
+          );
+          const index = await indexResponse.json();
+          
+          // Load selected experiments
+          for (const exp of index) {
+              const response = await fetch(
+                `https://raw.githubusercontent.com/${owner}/${repo}/main/data/experiments/${exp.filename}`
+              );
+              const data = await response.json();
+              experimentData.push(data);
+          }
+        }
         
         // Load local files
         function loadLocalFiles() {
@@ -320,25 +340,7 @@
             Plotly.newPlot('dvfsPlot', [trace1, trace2], layout);
         }
 
-        async function loadFromGitHub() {
-          const owner = 'YOUR_USERNAME';
-          const repo = 'mobile-llm-dashboard';
-          
-          // Fetch index
-          const indexResponse = await fetch(
-              `https://raw.githubusercontent.com/${owner}/${repo}/main/data/experiments.json`
-          );
-          const index = await indexResponse.json();
-          
-          // Load selected experiments
-          for (const exp of index) {
-              const response = await fetch(
-                `https://raw.githubusercontent.com/${owner}/${repo}/main/data/experiments/${exp.filename}`
-              );
-              const data = await response.json();
-              experimentData.push(data);
-          }
-        }
+        
         
         // Render phase comparison
         function renderPhaseComparison() {
