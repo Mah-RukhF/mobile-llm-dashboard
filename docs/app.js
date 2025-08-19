@@ -50,7 +50,7 @@ class Dashboard {
     document.addEventListener('drop', (e) => {
       e.preventDefault();
       document.body.classList.remove('drag-over');
-      const file = e.dataTransfer?.files?.;
+      const file = e.dataTransfer?.files?.[0];
       if (file && file.name.endsWith('.json')) {
         this.loadFromFile(file);
       }
