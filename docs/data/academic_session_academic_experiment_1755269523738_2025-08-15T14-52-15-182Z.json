@@ -1,0 +1,1494 @@
+{
+  "sessionInfo": {
+    "sessionId": "academic_experiment_1755269523738",
+    "sessionType": "experiment",
+    "startTime": 1755269523744,
+    "endTime": 1755269535177,
+    "duration": 11433,
+    "dataSource": "academic_session_manager",
+    "metadata": {}
+  },
+  "inferences": [
+    {
+      "experimentId": "exp_1755269525472_Qwen2.5_Q8_0_512_technical_explanation_1",
+      "model": "Qwen2.5-0.5B-Instruct",
+      "quantLevel": "Q8_0.gguf",
+      "contextLength": 512,
+      "duration": 1474,
+      "tokens": 24,
+      "prefillTokens": 15,
+      "decodeTokens": 24,
+      "systemMetrics": {
+        "timestamp": 1755269527007,
+        "processCpu": 61.44,
+        "systemMemory": 3473.3125,
+        "processMemory": 1056.8828125,
+        "dvfs": {
+          "coreCount": 8,
+          "frequenciesKhz": [
+            1536000,
+            1536000,
+            1536000,
+            1536000,
+            1536000,
+            1536000,
+            1536000,
+            1536000
+          ],
+          "avgFrequencyKhz": 1536000,
+          "activeCores": 8,
+          "coresOnline": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "timestamp": 1755269527015,
+          "valid": true,
+          "frequencyVariance": 0,
+          "coreUtilization": 1,
+          "scalingActivity": {
+            "scalingActive": false,
+            "pattern": "unknown",
+            "efficiency": 0
+          }
+        },
+        "valid": true,
+        "attempt": 1,
+        "retried": false,
+        "debug": {
+          "rawProcessCpu": 61.44,
+          "processCpuValid": true,
+          "dvfsValid": true,
+          "dvfsError": null,
+          "validationTimestamp": 1755269527007
+        }
+      },
+      "sessionId": "academic_experiment_1755269523738",
+      "recordedAt": 1755269527019,
+      "success": true,
+      "phases": {
+        "prefill": {},
+        "decode": {}
+      }
+    },
+    {
+      "inferenceId": "Qwen2.5-0.5B-Instruct_1755269525497",
+      "modelName": "Qwen2.5-0.5B-Instruct",
+      "contextLength": 512,
+      "startTime": 1755269525497,
+      "sessionId": "academic_experiment_1755269523738",
+      "phases": {
+        "prefill": {
+          "duration": 218,
+          "tokenCount": 15,
+          "tokensPerSecond": 68.80733944954129,
+          "systemMetrics": {
+            "timestamp": 1755269525719,
+            "processCpu": 58.66,
+            "systemMemory": 3480.56640625,
+            "processMemory": 1074.3671875,
+            "dvfs": {
+              "coreCount": 8,
+              "frequenciesKhz": [
+                533000,
+                533000,
+                533000,
+                533000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "avgFrequencyKhz": 1466500,
+              "activeCores": 8,
+              "coresOnline": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "timestamp": 1755269525724,
+              "valid": true,
+              "frequencyVariance": 871422250000,
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              }
+            },
+            "valid": true,
+            "attempt": 1,
+            "retried": false,
+            "debug": {
+              "rawProcessCpu": 58.66,
+              "processCpuValid": true,
+              "dvfsValid": true,
+              "dvfsError": null,
+              "validationTimestamp": 1755269525719
+            }
+          }
+        },
+        "decode": {
+          "duration": 1240,
+          "tokenCount": 25,
+          "tokensPerSecond": 20.161290322580644,
+          "systemMetrics": {
+            "timestamp": 1755269526968,
+            "processCpu": 80.64,
+            "systemMemory": 3473.078125,
+            "processMemory": 1056.4375,
+            "dvfs": {
+              "coreCount": 8,
+              "frequenciesKhz": [
+                672000,
+                672000,
+                672000,
+                672000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "avgFrequencyKhz": 1536000,
+              "activeCores": 8,
+              "coresOnline": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "timestamp": 1755269526973,
+              "valid": true,
+              "frequencyVariance": 746496000000,
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              }
+            },
+            "valid": true,
+            "attempt": 1,
+            "retried": false,
+            "debug": {
+              "rawProcessCpu": 80.64,
+              "processCpuValid": true,
+              "dvfsValid": true,
+              "dvfsError": null,
+              "validationTimestamp": 1755269526968
+            }
+          }
+        }
+      },
+      "endTime": 1755269526976,
+      "duration": 1479,
+      "tokenCount": 25,
+      "metrics": {
+        "modelName": "Qwen2.5-0.5B-Instruct",
+        "contextLength": 512
+      },
+      "systemMetrics": {}
+    },
+    {
+      "experimentId": "exp_1755269527023_Qwen2.5_Q8_0_512_technical_explanation_2",
+      "model": "Qwen2.5-0.5B-Instruct",
+      "quantLevel": "Q8_0.gguf",
+      "contextLength": 512,
+      "duration": 1006,
+      "tokens": 25,
+      "prefillTokens": 15,
+      "decodeTokens": 25,
+      "systemMetrics": {
+        "timestamp": 1755269528049,
+        "processCpu": 56.74,
+        "systemMemory": 3474.02734375,
+        "processMemory": 1058.8515625,
+        "dvfs": {
+          "coreCount": 8,
+          "frequenciesKhz": [
+            2002000,
+            2002000,
+            2002000,
+            2002000,
+            2304000,
+            2304000,
+            2304000,
+            2304000
+          ],
+          "avgFrequencyKhz": 2153000,
+          "activeCores": 8,
+          "coresOnline": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "timestamp": 1755269528055,
+          "valid": true,
+          "frequencyVariance": 22801000000,
+          "coreUtilization": 1,
+          "scalingActivity": {
+            "scalingActive": false,
+            "pattern": "unknown",
+            "efficiency": 0
+          }
+        },
+        "valid": true,
+        "attempt": 1,
+        "retried": false,
+        "debug": {
+          "rawProcessCpu": 56.74,
+          "processCpuValid": true,
+          "dvfsValid": true,
+          "dvfsError": null,
+          "validationTimestamp": 1755269528049
+        }
+      },
+      "sessionId": "academic_experiment_1755269523738",
+      "recordedAt": 1755269528057,
+      "success": true,
+      "phases": {
+        "prefill": {},
+        "decode": {}
+      }
+    },
+    {
+      "experimentId": "exp_1755269530079_Llama_Q8_0_512_technical_explanation_1",
+      "model": "Llama-3.2-1B-Instruct",
+      "quantLevel": "Q8_0.gguf",
+      "contextLength": 512,
+      "duration": 2691,
+      "tokens": 24,
+      "prefillTokens": 15,
+      "decodeTokens": 24,
+      "systemMetrics": {
+        "timestamp": 1755269532790,
+        "processCpu": 63.36,
+        "systemMemory": 3577.8359375,
+        "processMemory": 2420.8671875,
+        "dvfs": {
+          "coreCount": 8,
+          "frequenciesKhz": [
+            960000,
+            960000,
+            960000,
+            960000,
+            2208000,
+            2208000,
+            2208000,
+            2208000
+          ],
+          "avgFrequencyKhz": 1584000,
+          "activeCores": 8,
+          "coresOnline": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "timestamp": 1755269532795,
+          "valid": true,
+          "frequencyVariance": 389376000000,
+          "coreUtilization": 1,
+          "scalingActivity": {
+            "scalingActive": false,
+            "pattern": "unknown",
+            "efficiency": 0
+          }
+        },
+        "valid": true,
+        "attempt": 1,
+        "retried": false,
+        "debug": {
+          "rawProcessCpu": 63.36,
+          "processCpuValid": true,
+          "dvfsValid": true,
+          "dvfsError": null,
+          "validationTimestamp": 1755269532790
+        }
+      },
+      "sessionId": "academic_experiment_1755269523738",
+      "recordedAt": 1755269532798,
+      "success": true,
+      "phases": {
+        "prefill": {},
+        "decode": {}
+      }
+    },
+    {
+      "experimentId": "exp_1755269532799_Llama_Q8_0_512_technical_explanation_2",
+      "model": "Llama-3.2-1B-Instruct",
+      "quantLevel": "Q8_0.gguf",
+      "contextLength": 512,
+      "duration": 2348,
+      "tokens": 25,
+      "prefillTokens": 15,
+      "decodeTokens": 25,
+      "systemMetrics": {
+        "timestamp": 1755269535165,
+        "processCpu": 61.44,
+        "systemMemory": 3577.5546875,
+        "processMemory": 2416.421875,
+        "dvfs": {
+          "coreCount": 8,
+          "frequenciesKhz": [
+            864000,
+            864000,
+            864000,
+            864000,
+            2304000,
+            2304000,
+            2304000,
+            2304000
+          ],
+          "avgFrequencyKhz": 1584000,
+          "activeCores": 8,
+          "coresOnline": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "timestamp": 1755269535170,
+          "valid": true,
+          "frequencyVariance": 518400000000,
+          "coreUtilization": 1,
+          "scalingActivity": {
+            "scalingActive": false,
+            "pattern": "unknown",
+            "efficiency": 0
+          }
+        },
+        "valid": true,
+        "attempt": 1,
+        "retried": false,
+        "debug": {
+          "rawProcessCpu": 61.44,
+          "processCpuValid": true,
+          "dvfsValid": true,
+          "dvfsError": null,
+          "validationTimestamp": 1755269535165
+        }
+      },
+      "sessionId": "academic_experiment_1755269523738",
+      "recordedAt": 1755269535173,
+      "success": true,
+      "phases": {
+        "prefill": {},
+        "decode": {}
+      }
+    }
+  ],
+  "performanceData": {
+    "sessionId": "academic_experiment_1755269523738",
+    "academicMetrics": {
+      "totalInferences": 5,
+      "prefillMetrics": {
+        "totalTokens": 0,
+        "totalTime": 218,
+        "averageTokensPerSecond": 68.80733944954129,
+        "measurements": 1,
+        "systemCorrelationPoints": 1
+      },
+      "decodeMetrics": {
+        "totalTokens": 0,
+        "totalTime": 1240,
+        "averageTokensPerSecond": 20.161290322580644,
+        "measurements": 1,
+        "systemCorrelationPoints": 25
+      },
+      "systemCorrelation": {
+        "cpuUsageByPhase": {
+          "prefill": [
+            {
+              "phase": "prefill_complete",
+              "tokens": 15,
+              "duration": 218,
+              "processCpu": 58.66,
+              "timestamp": 1755269525718
+            }
+          ],
+          "decode": [
+            {
+              "tokenId": 1,
+              "processCpu": 61.44,
+              "timestamp": 1755269525731
+            },
+            {
+              "tokenId": 2,
+              "processCpu": 72.96,
+              "timestamp": 1755269525786
+            },
+            {
+              "tokenId": 3,
+              "processCpu": 88.04,
+              "timestamp": 1755269525845
+            },
+            {
+              "tokenId": 4,
+              "processCpu": 88.04,
+              "timestamp": 1755269525894
+            },
+            {
+              "tokenId": 5,
+              "processCpu": 74.88,
+              "timestamp": 1755269525941
+            },
+            {
+              "tokenId": 6,
+              "processCpu": 72.96,
+              "timestamp": 1755269525992
+            },
+            {
+              "tokenId": 7,
+              "processCpu": 71.04,
+              "timestamp": 1755269526042
+            },
+            {
+              "tokenId": 8,
+              "processCpu": 71.04,
+              "timestamp": 1755269526088
+            },
+            {
+              "tokenId": 9,
+              "processCpu": 71.04,
+              "timestamp": 1755269526138
+            },
+            {
+              "tokenId": 10,
+              "processCpu": 71.04,
+              "timestamp": 1755269526188
+            },
+            {
+              "tokenId": 11,
+              "processCpu": 71.04,
+              "timestamp": 1755269526239
+            },
+            {
+              "tokenId": 12,
+              "processCpu": 69.12,
+              "timestamp": 1755269526288
+            },
+            {
+              "tokenId": 13,
+              "processCpu": 69.12,
+              "timestamp": 1755269526337
+            },
+            {
+              "tokenId": 14,
+              "processCpu": 61.44,
+              "timestamp": 1755269526403
+            },
+            {
+              "tokenId": 15,
+              "processCpu": 61.44,
+              "timestamp": 1755269526453
+            },
+            {
+              "tokenId": 16,
+              "processCpu": 63.84,
+              "timestamp": 1755269526503
+            },
+            {
+              "tokenId": 17,
+              "processCpu": 71.04,
+              "timestamp": 1755269526554
+            },
+            {
+              "tokenId": 18,
+              "processCpu": 65.28,
+              "timestamp": 1755269526603
+            },
+            {
+              "tokenId": 19,
+              "processCpu": 67.2,
+              "timestamp": 1755269526654
+            },
+            {
+              "tokenId": 20,
+              "processCpu": 72.96,
+              "timestamp": 1755269526701
+            },
+            {
+              "tokenId": 21,
+              "processCpu": 88.04,
+              "timestamp": 1755269526757
+            },
+            {
+              "tokenId": 22,
+              "processCpu": 72.96,
+              "timestamp": 1755269526805
+            },
+            {
+              "tokenId": 23,
+              "processCpu": 76.8,
+              "timestamp": 1755269526862
+            },
+            {
+              "tokenId": 24,
+              "processCpu": 80.64,
+              "timestamp": 1755269526910
+            },
+            {
+              "tokenId": 25,
+              "processCpu": 78.72,
+              "timestamp": 1755269526958
+            }
+          ]
+        },
+        "memoryUsageByPhase": {
+          "prefill": [
+            {
+              "phase": "prefill_complete",
+              "tokens": 15,
+              "duration": 218,
+              "systemMemory": 3480.56640625,
+              "processMemory": 1074.3671875,
+              "timestamp": 1755269525718
+            }
+          ],
+          "decode": [
+            {
+              "tokenId": 1,
+              "systemMemory": 3480.8125,
+              "processMemory": 1074.3671875,
+              "timestamp": 1755269525731
+            },
+            {
+              "tokenId": 2,
+              "systemMemory": 3481.046875,
+              "processMemory": 1075.078125,
+              "timestamp": 1755269525786
+            },
+            {
+              "tokenId": 3,
+              "systemMemory": 3481.046875,
+              "processMemory": 1075.1796875,
+              "timestamp": 1755269525845
+            },
+            {
+              "tokenId": 4,
+              "systemMemory": 3481.5390625,
+              "processMemory": 1075.18359375,
+              "timestamp": 1755269525894
+            },
+            {
+              "tokenId": 5,
+              "systemMemory": 3481.78515625,
+              "processMemory": 1074.8671875,
+              "timestamp": 1755269525941
+            },
+            {
+              "tokenId": 6,
+              "systemMemory": 3481.78515625,
+              "processMemory": 1069.734375,
+              "timestamp": 1755269525992
+            },
+            {
+              "tokenId": 7,
+              "systemMemory": 3479.37109375,
+              "processMemory": 1063.06640625,
+              "timestamp": 1755269526042
+            },
+            {
+              "tokenId": 8,
+              "systemMemory": 3479.60546875,
+              "processMemory": 1063.0703125,
+              "timestamp": 1755269526088
+            },
+            {
+              "tokenId": 9,
+              "systemMemory": 3479.60546875,
+              "processMemory": 1062.8828125,
+              "timestamp": 1755269526138
+            },
+            {
+              "tokenId": 10,
+              "systemMemory": 3478.9375,
+              "processMemory": 1062.4453125,
+              "timestamp": 1755269526188
+            },
+            {
+              "tokenId": 11,
+              "systemMemory": 3478.4921875,
+              "processMemory": 1061.6484375,
+              "timestamp": 1755269526239
+            },
+            {
+              "tokenId": 12,
+              "systemMemory": 3478.984375,
+              "processMemory": 1061.89453125,
+              "timestamp": 1755269526288
+            },
+            {
+              "tokenId": 13,
+              "systemMemory": 3479.203125,
+              "processMemory": 1062.15234375,
+              "timestamp": 1755269526337
+            },
+            {
+              "tokenId": 14,
+              "systemMemory": 3471.45703125,
+              "processMemory": 1054.41796875,
+              "timestamp": 1755269526403
+            },
+            {
+              "tokenId": 15,
+              "systemMemory": 3471.703125,
+              "processMemory": 1054.9296875,
+              "timestamp": 1755269526453
+            },
+            {
+              "tokenId": 16,
+              "systemMemory": 3471.703125,
+              "processMemory": 1055.08203125,
+              "timestamp": 1755269526503
+            },
+            {
+              "tokenId": 17,
+              "systemMemory": 3471.94921875,
+              "processMemory": 1055.08203125,
+              "timestamp": 1755269526554
+            },
+            {
+              "tokenId": 18,
+              "systemMemory": 3472.18359375,
+              "processMemory": 1055.08203125,
+              "timestamp": 1755269526603
+            },
+            {
+              "tokenId": 19,
+              "systemMemory": 3472.18359375,
+              "processMemory": 1055.484375,
+              "timestamp": 1755269526654
+            },
+            {
+              "tokenId": 20,
+              "systemMemory": 3472.18359375,
+              "processMemory": 1055.48828125,
+              "timestamp": 1755269526701
+            },
+            {
+              "tokenId": 21,
+              "systemMemory": 3472.18359375,
+              "processMemory": 1055.65625,
+              "timestamp": 1755269526757
+            },
+            {
+              "tokenId": 22,
+              "systemMemory": 3472.59765625,
+              "processMemory": 1055.9140625,
+              "timestamp": 1755269526805
+            },
+            {
+              "tokenId": 23,
+              "systemMemory": 3472.83203125,
+              "processMemory": 1055.9140625,
+              "timestamp": 1755269526862
+            },
+            {
+              "tokenId": 24,
+              "systemMemory": 3472.83203125,
+              "processMemory": 1056.43359375,
+              "timestamp": 1755269526910
+            },
+            {
+              "tokenId": 25,
+              "systemMemory": 3472.83203125,
+              "processMemory": 1056.4375,
+              "timestamp": 1755269526958
+            }
+          ]
+        },
+        "dvfsDataByPhase": {
+          "prefill": [
+            {
+              "phase": "prefill",
+              "timestamp": 1755269525743,
+              "avgFrequency": 1466500,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                533000,
+                533000,
+                533000,
+                533000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 15,
+              "duration": 218,
+              "tokensPerSecond": 68.80733944954129
+            }
+          ],
+          "decode": [
+            {
+              "phase": "decode",
+              "timestamp": 1755269525746,
+              "avgFrequency": 1536000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                672000,
+                672000,
+                672000,
+                672000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269525798,
+              "avgFrequency": 1824000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1248000,
+                1248000,
+                1248000,
+                1248000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269525855,
+              "avgFrequency": 2201000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                2002000,
+                2002000,
+                2002000,
+                2002000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269525901,
+              "avgFrequency": 1872000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1344000,
+                1344000,
+                1344000,
+                1344000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269525953,
+              "avgFrequency": 1872000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1344000,
+                1344000,
+                1344000,
+                1344000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526002,
+              "avgFrequency": 1824000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1248000,
+                1248000,
+                1248000,
+                1248000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526050,
+              "avgFrequency": 1776000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1152000,
+                1152000,
+                1152000,
+                1152000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526099,
+              "avgFrequency": 1776000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1152000,
+                1152000,
+                1152000,
+                1152000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526149,
+              "avgFrequency": 1776000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1152000,
+                1152000,
+                1152000,
+                1152000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526200,
+              "avgFrequency": 1776000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1152000,
+                1152000,
+                1152000,
+                1152000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526248,
+              "avgFrequency": 1776000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1152000,
+                1152000,
+                1152000,
+                1152000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526299,
+              "avgFrequency": 1728000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1056000,
+                1056000,
+                1056000,
+                1056000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526349,
+              "avgFrequency": 1728000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1056000,
+                1056000,
+                1056000,
+                1056000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526414,
+              "avgFrequency": 1920000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1440000,
+                1440000,
+                1440000,
+                1440000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526464,
+              "avgFrequency": 1728000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1056000,
+                1056000,
+                1056000,
+                1056000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526514,
+              "avgFrequency": 1824000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1248000,
+                1248000,
+                1248000,
+                1248000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526565,
+              "avgFrequency": 1776000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1152000,
+                1152000,
+                1152000,
+                1152000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526615,
+              "avgFrequency": 1728000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1056000,
+                1056000,
+                1056000,
+                1056000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526661,
+              "avgFrequency": 1680000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                960000,
+                960000,
+                960000,
+                960000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526709,
+              "avgFrequency": 1824000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1248000,
+                1248000,
+                1248000,
+                1248000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526765,
+              "avgFrequency": 2201000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                2002000,
+                2002000,
+                2002000,
+                2002000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526813,
+              "avgFrequency": 2201000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                2002000,
+                2002000,
+                2002000,
+                2002000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526869,
+              "avgFrequency": 1584000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                768000,
+                768000,
+                768000,
+                768000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526917,
+              "avgFrequency": 1466500,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                533000,
+                533000,
+                533000,
+                533000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269526965,
+              "avgFrequency": 1968000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                1536000,
+                1536000,
+                1536000,
+                1536000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 1,
+              "duration": 0,
+              "tokensPerSecond": 0
+            },
+            {
+              "phase": "decode",
+              "timestamp": 1755269527020,
+              "avgFrequency": 1536000,
+              "coreCount": 8,
+              "activeCores": 8,
+              "frequencies": [
+                672000,
+                672000,
+                672000,
+                672000,
+                2400000,
+                2400000,
+                2400000,
+                2400000
+              ],
+              "coreUtilization": 1,
+              "scalingActivity": {
+                "scalingActive": false,
+                "pattern": "unknown",
+                "efficiency": 0
+              },
+              "tokens": 25,
+              "duration": 1240,
+              "tokensPerSecond": 20.161290322580644
+            }
+          ]
+        }
+      },
+      "dvfsAnalysis": {
+        "frequencyAnalysis": {
+          "trend": "stable",
+          "peakFrequency": 2201000,
+          "averageFrequency": 1791407,
+          "frequencyStability": 89.35,
+          "scalingEvents": 8,
+          "dataPoints": 27
+        },
+        "thermalAnalysis": {
+          "throttlingDetected": true,
+          "throttlingEvents": 2,
+          "maxFrequencyDrop": 28.03,
+          "thermalStability": 92.59,
+          "thermalEventCount": 2
+        },
+        "scalingEfficiency": {
+          "efficiency": 0,
+          "responsiveness": 0,
+          "adaptability": 25,
+          "patternCount": 27
+        },
+        "phaseComparison": {
+          "prefillAvgFreq": 1466500,
+          "decodeAvgFreq": 1803904,
+          "phaseSpeedupRatio": 1.23,
+          "prefillPeakFreq": 1466500,
+          "decodePeakFreq": 2201000,
+          "dataQuality": "limited",
+          "prefillSamples": 1,
+          "decodeSamples": 26
+        },
+        "academicInsights": [
+          "Thermal throttling detected in 2 events - mobile device thermal management active",
+          "Conservative CPU scaling detected - device balancing performance and power consumption"
+        ]
+      },
+      "summary": {
+        "totalInferences": 5,
+        "totalTokensProcessed": 98,
+        "averageInferenceDuration": 1799.6,
+        "systemCorrelationDataPoints": 79,
+        "sessionDuration": 11438
+      }
+    }
+  },
+  "exportMetadata": {
+    "exportedAt": "2025-08-15T14:52:15.182Z",
+    "exportedBy": "AcademicSessionManager",
+    "version": "1.0.0",
+    "dataQuality": {
+      "totalInferences": 5,
+      "successfulInferences": 5,
+      "systemCorrelationPoints": 79
+    }
+  }
+}
